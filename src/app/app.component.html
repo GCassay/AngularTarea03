@@ -1,8 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <app-tasks></app-tasks>
-      <app-code></app-code>
+      <button type="button" name="button" (click)="showSecret()">Display Details</button>
+      <p *ngIf="secretWord">Secret Word: Noblesse Obligue</p>
+      <div class="">
+        <ul>
+          <li *ngFor="let clicks of logs"
+              [ngStyle]="{ backgroundColor: clicks > 4 ? 'blue' : 'transparent' }"
+              [ngClass]="{ whiteText: clicks > 4}">
+              {{ clicks % 2 != 0 ? 'Show' : 'Hide' }}{{ '('+ clicks +')' }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
